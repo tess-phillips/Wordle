@@ -55,15 +55,24 @@
             event.preventDefault(); 
             var input = document.getElementById("inputField").value.toUpperCase();
             if (wordList.includes(input)) {
-                alert("Word is valid!");
+                return input
             } else {
                 alert("Word is not valid!");
             }
         }
 
         function onSubmit(event){
-            validateWord(event)
+            const input = validateWord(event)
+            if (input != undefined){
+                guessHistory.push(input)
+                numberOfGuesses -= 1
+                createRow(input)
+                console.log(numberOfGuesses, guessHistory)
+                console.log(gameBoard)
+            }
         }
+
+
     
         function createRow(word){
             const rowTemplate = document.querySelector("#rowTemplate");
@@ -88,14 +97,14 @@
         const randomWord = getRandomWord(wordList);
 
         var emptyWord = "     ";
-        var guesses = []
+        var guessHistory = []
         var numberOfGuesses = 5
 
-        createRow(emptyWord)
-        createRow(emptyWord)
-        createRow(emptyWord)
-        createRow(emptyWord)
-        createRow(emptyWord)
+        // createRow(emptyWord)
+        // createRow(emptyWord)
+        // createRow(emptyWord)
+        // createRow(emptyWord)
+        // createRow(emptyWord)
     </script>
 </body>
 </html>
