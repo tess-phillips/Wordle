@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wordle Game</title>
+    <style>
+        .gameBoard {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            width: 300px;
+            height: 100px;
+        }
+        .row {
+            display: flex; 
+            flex-direction: row;
+        }
+        .cell {
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Wordle Game</h1>
+    <div class="gameBoard" id="gameBoard">
+        <template id="rowTemplate">
+            <div class="row">
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+            </div>
+        </template>
+    </div>
+
+    <script>
+        const gameBoard = document.querySelector("#gameBoard");
+    
+        function createRow(word){
+            const rowTemplate = document.querySelector("#rowTemplate");
+            const domFragment = rowTemplate.content.cloneNode(true);
+            var cells = domFragment.querySelectorAll(".cell");
+            for (var i = 0; i < word.length; i++) {
+                cells[i].textContent = word[i];
+            }
+            gameBoard.appendChild(domFragment)
+        }
+
+        // Example usage
+        function getRandomWord(words) {
+            if (!Array.isArray(words) || words.length === 0) {
+                return null; // Return null if the input is not a non-empty array
+            }
+
+            const randomIndex = Math.floor(Math.random() * words.length);
+            return words[randomIndex];
+        }
+
+        const wordList = ['apple', 'swear', 'bloat', 'price', 'spell'].map(word => word.toUpperCase());
+        const randomWord = getRandomWord(wordList);
+
+        var emptyWord = "     ";
+        createRow(emptyWord)
+        createRow(emptyWord)
+        createRow(emptyWord)
+        createRow(emptyWord)
+        createRow(emptyWord)
+    </script>
+</body>
+</html>
