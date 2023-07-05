@@ -27,6 +27,15 @@
 </head>
 <body>
     <h1>Wordle Game</h1>
+    <p>['apple', 'swear', 'bloat', 'price', 'spell']</p>
+    <div>
+        <label for="inputField">Enter your guess:</label>
+        <input type="text" id="inputField" name="guess" required>
+
+        <input type="submit" value="Submit" onclick="onSubmit(event)">   
+    </div>
+    <br>
+
     <div class="gameBoard" id="gameBoard">
         <template id="rowTemplate">
             <div class="row">
@@ -37,10 +46,29 @@
                 <div class="cell"></div>
             </div>
         </template>
+ 
     </div>
 
     <script>
         const gameBoard = document.querySelector("#gameBoard");
+        function validateWord(event) {
+        event.preventDefault();  // Prevents the form from submitting by default
+
+        var input = document.getElementById("inputField").value.toUpperCase();
+        if (wordList.includes(input)) {
+            // Word is valid, proceed with form submission or further processing
+            alert("Word is valid!");
+            // Add your desired logic here
+        } else {
+            // Word is not valid, display an error message or take appropriate action
+            alert("Word is not valid!");
+            // Add your desired error handling logic here
+            }
+        }
+
+        function onSubmit(event){
+            validateWord(event)
+        }
     
         function createRow(word){
             const rowTemplate = document.querySelector("#rowTemplate");
@@ -66,6 +94,9 @@
         const randomWord = getRandomWord(wordList);
 
         var emptyWord = "     ";
+        var guesses = []
+        var numberOfGuesses = 5
+
         createRow(emptyWord)
         createRow(emptyWord)
         createRow(emptyWord)
