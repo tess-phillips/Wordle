@@ -52,17 +52,12 @@
     <script>
         const gameBoard = document.querySelector("#gameBoard");
         function validateWord(event) {
-        event.preventDefault();  // Prevents the form from submitting by default
-
-        var input = document.getElementById("inputField").value.toUpperCase();
-        if (wordList.includes(input)) {
-            // Word is valid, proceed with form submission or further processing
-            alert("Word is valid!");
-            // Add your desired logic here
-        } else {
-            // Word is not valid, display an error message or take appropriate action
-            alert("Word is not valid!");
-            // Add your desired error handling logic here
+            event.preventDefault(); 
+            var input = document.getElementById("inputField").value.toUpperCase();
+            if (wordList.includes(input)) {
+                alert("Word is valid!");
+            } else {
+                alert("Word is not valid!");
             }
         }
 
@@ -85,7 +80,6 @@
             if (!Array.isArray(words) || words.length === 0) {
                 return null; // Return null if the input is not a non-empty array
             }
-
             const randomIndex = Math.floor(Math.random() * words.length);
             return words[randomIndex];
         }
