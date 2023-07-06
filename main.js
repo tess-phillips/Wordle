@@ -25,3 +25,21 @@ function winLoseCheck(won){
         winningModal.showModal()
     }
 }
+
+fetch('wordsCopy.json')
+.then(response => response.json())
+.then(data => {
+    wordList = data.map(entry => entry.word)
+                        .map(word => word.toUpperCase());
+    randomWord = getRandomWord(wordList);
+})
+.catch(error => console.error(error));
+
+function onSubmit(event){
+    const input = validateWord(event)
+    if (input != undefined){
+        guessHistory.push(input)
+        numberOfGuesses -= 1
+        const won = createRow(input)
+        winLoseCheck(won)}
+}
