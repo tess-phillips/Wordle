@@ -1,4 +1,5 @@
 import { getRandomWord } from "./utils/getRandomWord.js";
+import { createRow } from "./utils/createRow.js";
 
 let wordList
 let randomWord
@@ -47,7 +48,7 @@ function onSubmit(event){
     if (input != undefined){
         guessHistory.push(input)
         numberOfGuesses -= 1
-        const won = createRow(input)
+        const won = createRow(input, randomWord)
         winLoseCheck(won)}
 }
 
@@ -62,28 +63,8 @@ function validateWord(event) {
     }
 }
 
-function createRow(input){
-    const rowTemplate = document.querySelector("#rowTemplate");
-    const domFragment = rowTemplate.content.cloneNode(true);
-    var cells = domFragment.querySelectorAll(".cell");
-    var colouring = guessAssess(randomWord,input)
-    for (var i = 0; i < input.length; i++) {
-        cells[i].textContent = input[i];
-        cells[i].classList.add(colouring[i])
-    }
-    gameBoard.appendChild(domFragment)
-    return colouring.every(element => element === 'correct');
-}
 
 
-function guessAssess(randomWord, input){
-    //output an array of length 5 consisting of 0 (letters of same index match), 1 (letter in input exists in randomword), 2(wrong)
-    var rand = randomWord.split("")
-    var inp = input.split("")
-    return inp.map((x,index)=>{
-        if (rand[index]==x) {return "correct"}
-        else if (rand.includes(x)){return "almost"}
-        else {return "ignore"}
-    })
-}
+
+
 
