@@ -37,7 +37,7 @@
 <body>
     <h1>Wordle Game</h1>
     <p>['apple', 'swear', 'bloat', 'price', 'spell']</p>
-    <div>
+    <div id="inputArea">
         <label for="inputField">Enter your guess:</label>
         <input type="text" id="inputField" name="guess" required>
 
@@ -58,8 +58,35 @@
  
     </div>
 
+    <dialog id="myWinningModal">
+        <h2>You've won</h2>
+        <button id="closeWinningModal">Close</button>
+        <button id="playAgain" onclick="location.reload()">Play Again</button>
+    </dialog>
+
+
     <script>
         const gameBoard = document.querySelector("#gameBoard");
+        const inputArea = document.querySelector("#inputArea");
+
+        // const modal = document.getElementById('myModal');
+        // const openModalButton = document.getElementById('openModal');
+        const closeModalButton = document.getElementById('closeWinningModal');
+        const winningModal = document.getElementById('myWinningModal');
+
+        // openModalButton.addEventListener('click', () => {
+        //     modal.showModal();
+        // });
+
+        closeModalButton.addEventListener('click', () => {
+            winningModal.close();
+            inputArea.remove()
+
+        });
+        function onWin(){
+            winningModal.showModal()
+        }
+
         function validateWord(event) {
             event.preventDefault(); 
             var input = document.getElementById("inputField").value.toUpperCase();
@@ -90,7 +117,8 @@
             }
 
             if (win == true){
-                console.log("you've won")
+                onWin()
+                // console.log("you've won")
             }
             if (lose == true){
                 console.log("you've lost womp womp")
