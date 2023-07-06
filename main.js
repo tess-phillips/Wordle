@@ -6,7 +6,6 @@ import { validateWord } from "./utils/validateWord.js";
 let wordList
 let randomWord
 
-const gameBoard = document.querySelector("#gameBoard");
 const inputArea = document.querySelector("#inputArea");
 const closeModalButton = document.getElementById('closeWinningModal');
 const winningModal = document.getElementById('myWinningModal');
