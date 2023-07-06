@@ -72,7 +72,7 @@ function createRow(input){
         cells[i].classList.add(colouring[i])
     }
     gameBoard.appendChild(domFragment)
-    return allCorrect = colouring.every(element => element === 'correct');
+    return colouring.every(element => element === 'correct');
 }
 
 
