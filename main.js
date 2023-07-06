@@ -23,8 +23,6 @@ submitBtn.addEventListener('click', (event) => {
     onSubmit(event)
 });
 
-
-
 fetch('wordsCopy.json')
 .then(response => response.json())
 .then(data => {
@@ -42,7 +40,6 @@ function onSubmit(event){
         const won = createRow(input, randomWord)
         winLoseCheck(won,numberOfGuesses)}
 }
-
 
 function validateWord(event) {
     event.preventDefault(); 
