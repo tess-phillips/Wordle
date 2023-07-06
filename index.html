@@ -64,27 +64,27 @@
         <button id="playAgain" onclick="location.reload()">Play Again</button>
     </dialog>
 
-
+    <script src="main.js"></script>
     <script>
-        let wordList
-        let randomWord
+        // let wordList
+        // let randomWord
 
-        const gameBoard = document.querySelector("#gameBoard");
-        const inputArea = document.querySelector("#inputArea");
-        const closeModalButton = document.getElementById('closeWinningModal');
-        const winningModal = document.getElementById('myWinningModal');
+        // const gameBoard = document.querySelector("#gameBoard");
+        // const inputArea = document.querySelector("#inputArea");
+        // const closeModalButton = document.getElementById('closeWinningModal');
+        // const winningModal = document.getElementById('myWinningModal');
 
-        var guessHistory = []
-        var numberOfGuesses = 5
-        var win = false;
-        var lose = false;
+        // var guessHistory = []
+        // var numberOfGuesses = 5
+        // var win = false;
+        // var lose = false;
 
-        closeModalButton.addEventListener('click', () => {
-            winningModal.close();
-            inputArea.remove()
-        });
+        // closeModalButton.addEventListener('click', () => {
+        //     winningModal.close();
+        //     inputArea.remove()
+        // });
 
-        fetch('words.json')
+        fetch('wordsCopy.json')
             .then(response => response.json())
             .then(data => {
                 wordList = data.map(entry => entry.word)
@@ -125,15 +125,6 @@
             return allCorrect = colouring.every(element => element === 'correct');
         }
 
-        function winLoseCheck(won){
-            if (numberOfGuesses == 0){
-                document.querySelector("#winOrLoseText").textContent = "You lose womp womp"
-                winningModal.showModal()
-            }
-            if (won){
-                winningModal.showModal()
-            }
-        }
 
         function guessAssess(randomWord, input){
             //output an array of length 5 consisting of 0 (letters of same index match), 1 (letter in input exists in randomword), 2(wrong)
