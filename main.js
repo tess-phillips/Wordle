@@ -5,6 +5,7 @@ const gameBoard = document.querySelector("#gameBoard");
 const inputArea = document.querySelector("#inputArea");
 const closeModalButton = document.getElementById('closeWinningModal');
 const winningModal = document.getElementById('myWinningModal');
+const submitBtn = document.getElementById('submitBtn');
 
 var guessHistory = []
 var numberOfGuesses = 5
@@ -14,6 +15,10 @@ var lose = false;
 closeModalButton.addEventListener('click', () => {
     winningModal.close();
     inputArea.remove()
+});
+
+submitBtn.addEventListener('click', (event) => {
+    onSubmit(event)
 });
 
 function winLoseCheck(won){
