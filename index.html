@@ -100,17 +100,10 @@
 
         function winLoseCheck(won){
             if (numberOfGuesses == 0){
-                lose = true
-            }
-            if (won){
-                win = true
-            }
-
-            if (win == true){
+                document.querySelector("#winOrLoseText").textContent = "You lose womp womp"
                 winningModal.showModal()
             }
-            if (lose == true){
-                document.querySelector("#winOrLoseText").textContent = "You lose womp womp"
+            if (won){
                 winningModal.showModal()
             }
         }
