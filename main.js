@@ -1,6 +1,7 @@
 import { getRandomWord } from "./utils/getRandomWord.js";
 import { createRow } from "./utils/createRow.js";
 import { winLoseCheck } from "./utils/winLoseCheck.js";
+import { validateWord } from "./utils/validateWord.js";
 
 let wordList
 let randomWord
@@ -41,15 +42,7 @@ function onSubmit(event){
         winLoseCheck(won,numberOfGuesses)}
 }
 
-function validateWord(event) {
-    event.preventDefault(); 
-    var input = document.getElementById("inputField").value.toUpperCase();
-    if (wordList.includes(input)) {
-        return input
-    } else {
-        alert("Word is not valid!");
-    }
-}
+
 
 
 
