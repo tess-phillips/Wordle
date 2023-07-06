@@ -34,18 +34,10 @@ fetch('wordsCopy.json')
 .catch(error => console.error(error));
 
 function onSubmit(event){
-    const input = validateWord(event)
+    const input = validateWord(event, wordList)
     if (input != undefined){
         guessHistory.push(input)
         numberOfGuesses -= 1
         const won = createRow(input, randomWord)
         winLoseCheck(won,numberOfGuesses)}
 }
-
-
-
-
-
-
-
-
