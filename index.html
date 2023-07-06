@@ -75,7 +75,26 @@
             if (input != undefined){
                 guessHistory.push(input)
                 numberOfGuesses -= 1
-                createRow(input)
+                const won = createRow(input)
+                winLoseCheck(won)
+            }
+
+        }
+
+        function winLoseCheck(won){
+            if (numberOfGuesses == 0){
+                lose = true
+            }
+            if (won){
+                win = true
+            }
+            console.log(gameBoard)
+
+            if (win == true){
+                console.log("you've won")
+            }
+            if (lose == true){
+                console.log("you've lost womp womp")
             }
         }
 
@@ -101,13 +120,13 @@
             for (var i = 0; i < input.length; i++) {
                 cells[i].textContent = input[i];
                 cells[i].classList.add(colouring[i])
-                console.log(colouring[i])
             }
             gameBoard.appendChild(domFragment)
-            const allCorrect = colouring.every(element => element === 'correct');
-            if (allCorrect) {
-                console.log('All elements are correct!');
-            }        
+            return allCorrect = colouring.every(element => element === 'correct');
+            // if (allCorrect) {
+            //     win = true;
+            // }
+
         }
 
         // Example usage
@@ -125,6 +144,8 @@
         var emptyWord = "     ";
         var guessHistory = []
         var numberOfGuesses = 5
+        var win = false;
+        var lose = false;
 
         // createRow(emptyWord)
         // createRow(emptyWord)
