@@ -1,5 +1,6 @@
 import { getRandomWord } from "./utils/getRandomWord.js";
 import { createRow } from "./utils/createRow.js";
+import { winLoseCheck } from "./utils/winLoseCheck.js";
 
 let wordList
 let randomWord
@@ -12,8 +13,6 @@ const submitBtn = document.getElementById('submitBtn');
 
 var guessHistory = []
 var numberOfGuesses = 5
-var win = false;
-var lose = false;
 
 closeModalButton.addEventListener('click', () => {
     winningModal.close();
@@ -24,15 +23,7 @@ submitBtn.addEventListener('click', (event) => {
     onSubmit(event)
 });
 
-function winLoseCheck(won){
-    if (won){
-        winningModal.showModal()
-    }
-    else if (numberOfGuesses == 0){
-        document.querySelector("#winOrLoseText").textContent = "You lose womp womp"
-        winningModal.showModal()
-    }
-}
+
 
 fetch('wordsCopy.json')
 .then(response => response.json())
@@ -49,7 +40,7 @@ function onSubmit(event){
         guessHistory.push(input)
         numberOfGuesses -= 1
         const won = createRow(input, randomWord)
-        winLoseCheck(won)}
+        winLoseCheck(won,numberOfGuesses)}
 }
 
 
