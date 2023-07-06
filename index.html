@@ -88,7 +88,6 @@
             if (won){
                 win = true
             }
-            console.log(gameBoard)
 
             if (win == true){
                 console.log("you've won")
@@ -110,8 +109,6 @@
             })
         }
 
-
-    
         function createRow(input){
             const rowTemplate = document.querySelector("#rowTemplate");
             const domFragment = rowTemplate.content.cloneNode(true);
@@ -123,10 +120,6 @@
             }
             gameBoard.appendChild(domFragment)
             return allCorrect = colouring.every(element => element === 'correct');
-            // if (allCorrect) {
-            //     win = true;
-            // }
-
         }
 
         // Example usage
