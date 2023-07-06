@@ -112,12 +112,10 @@
             if (lose == true){
                 document.querySelector("#winOrLoseText").textContent = "You lose womp womp"
                 winningModal.showModal()
-                // console.log("you've lost womp womp")
             }
         }
 
         function guessAssess(randomWord, input){
-            console.log(randomWord,input)
             //output an array of length 5 consisting of 0 (letters of same index match), 1 (letter in input exists in randomword), 2(wrong)
             var rand = randomWord.split("")
             var inp = input.split("")
