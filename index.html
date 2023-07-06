@@ -59,7 +59,7 @@
     </div>
 
     <dialog id="myWinningModal">
-        <h2>You've won</h2>
+        <h2 id="winOrLoseText">You've won</h2>
         <button id="closeWinningModal">Close</button>
         <button id="playAgain" onclick="location.reload()">Play Again</button>
     </dialog>
@@ -71,15 +71,12 @@
 
         const closeModalButton = document.getElementById('closeWinningModal');
         const winningModal = document.getElementById('myWinningModal');
+        const losingModal = document.getElementById('myWinningModal');
 
         closeModalButton.addEventListener('click', () => {
             winningModal.close();
             inputArea.remove()
         });
-
-        // function onWin(){
-        //     winningModal.showModal()
-        // }
 
         function validateWord(event) {
             event.preventDefault(); 
@@ -99,7 +96,6 @@
                 const won = createRow(input)
                 winLoseCheck(won)
             }
-
         }
 
         function winLoseCheck(won){
@@ -114,7 +110,9 @@
                 winningModal.showModal()
             }
             if (lose == true){
-                console.log("you've lost womp womp")
+                document.querySelector("#winOrLoseText").textContent = "You lose womp womp"
+                winningModal.showModal()
+                // console.log("you've lost womp womp")
             }
         }
 
