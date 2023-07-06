@@ -23,7 +23,7 @@ submitBtn.addEventListener('click', (event) => {
     onSubmit(event)
 });
 
-fetch('wordsCopy.json')
+fetch('words.json')
 .then(response => response.json())
 .then(data => {
     wordList = data.map(entry => entry.word)
