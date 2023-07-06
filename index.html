@@ -72,19 +72,11 @@
         fetch('words.json')
             .then(response => response.json())
             .then(data => {
-                // Step 1: Filter five-letter words
-                // const wordList = data.filter(entry => entry.word.length === 5)
                 wordList = data.map(entry => entry.word)
                                     .map(word => word.toUpperCase());
                 randomWord = getRandomWord(wordList);
-
-                // Step 2: Store the words
-                // console.log(fiveLetterWords);
-                // You can use the "fiveLetterWords" array in your game
             })
             .catch(error => console.error(error));
-
-                // const wordList = ['apple', 'swear', 'bloat', 'price', 'spell'].map(word => word.toUpperCase());
 
         function validateWord(event) {
             event.preventDefault(); 
