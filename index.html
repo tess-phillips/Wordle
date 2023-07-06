@@ -68,10 +68,15 @@
     <script>
         const gameBoard = document.querySelector("#gameBoard");
         const inputArea = document.querySelector("#inputArea");
-
+        const wordList = ['apple', 'swear', 'bloat', 'price', 'spell'].map(word => word.toUpperCase());
+        const randomWord = getRandomWord(wordList);
         const closeModalButton = document.getElementById('closeWinningModal');
         const winningModal = document.getElementById('myWinningModal');
-        const losingModal = document.getElementById('myWinningModal');
+
+        var guessHistory = []
+        var numberOfGuesses = 5
+        var win = false;
+        var lose = false;
 
         closeModalButton.addEventListener('click', () => {
             winningModal.close();
@@ -140,14 +145,6 @@
             const randomIndex = Math.floor(Math.random() * words.length);
             return words[randomIndex];
         }
-
-        const wordList = ['apple', 'swear', 'bloat', 'price', 'spell'].map(word => word.toUpperCase());
-        const randomWord = getRandomWord(wordList);
-
-        var guessHistory = []
-        var numberOfGuesses = 5
-        var win = false;
-        var lose = false;
 
     </script>
 </body>
