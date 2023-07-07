@@ -4,8 +4,54 @@ import { winLoseCheck } from "./utils/winLoseCheck.js";
 import { validateWord } from "./utils/validateWord.js";
 // import { guessAssess } from "./utils/guessAssess.js";
 
+const fiveBtn = document.getElementById('5letter');
+const sixBtn = document.getElementById('6letter');
+const universals = document.getElementById('game-universals');
+const gameBoard5 = document.getElementById('gameBoard5');
+const gameBoard6 = document.getElementById('gameBoard6');
+
+let numberOfGuesses
+let gameBeingPlayed
 let wordList
 let randomWord
+
+fiveBtn.addEventListener('click', () => {
+    fiveBtn.remove();
+    sixBtn.remove();
+    universals.style.display = "block"
+    gameBoard5.style.display = "block"
+    numberOfGuesses = 5;
+    gameBeingPlayed = 5;
+    fetch('words5.json')
+        .then(response => response.json())
+        .then(data => {
+            wordList = data.map(entry => entry.word)
+                            .map(word => word.toUpperCase());
+            randomWord = getRandomWord(wordList);
+            document.querySelector("#theWordWas").textContent = randomWord;
+
+        })
+        .catch(error => console.error(error));
+});
+
+sixBtn.addEventListener('click', () => {
+    fiveBtn.remove();
+    sixBtn.remove();    
+    universals.style.display = "block"
+    gameBoard6.style.display = "block"
+    numberOfGuesses = 6;
+    gameBeingPlayed = 6;
+    fetch('words6.json')
+        .then(response => response.json())
+        .then(data => {
+            wordList = data.map(entry => entry.word)
+                            .map(word => word.toUpperCase());
+            randomWord = getRandomWord(wordList);
+            document.querySelector("#theWordWas").textContent = randomWord;
+
+        })
+        .catch(error => console.error(error));
+});
 
 const inputArea = document.querySelector("#inputArea");
 const closeModalButton = document.getElementById('closeWinningModal');
@@ -13,7 +59,7 @@ const winningModal = document.getElementById('myWinningModal');
 const submitBtn = document.getElementById('submitBtn');
 
 var guessHistory = []
-var numberOfGuesses = 5
+// var numberOfGuesses = 5
 
 closeModalButton.addEventListener('click', () => {
     winningModal.close();
@@ -24,23 +70,14 @@ submitBtn.addEventListener('click', (event) => {
     onSubmit(event)
 });
 
-fetch('words.json')
-.then(response => response.json())
-.then(data => {
-    wordList = data.map(entry => entry.word)
-                        .map(word => word.toUpperCase());
-    randomWord = getRandomWord(wordList);
-    document.querySelector("#theWordWas").textContent = randomWord;
 
-})
-.catch(error => console.error(error));
 
 function onSubmit(event){
     const input = validateWord(event, wordList)
     if (input != undefined){
         guessHistory.push(input)
         numberOfGuesses -= 1
-        const won = createRow(input, randomWord)
+        const won = createRow(input, randomWord,gameBeingPlayed)
         winLoseCheck(won,numberOfGuesses)}
         inputField.value =""
         // updateKeyboardColors(randomWord,input)
@@ -55,42 +92,3 @@ inputField.addEventListener('keypress', (event) => {
     onSubmit(event);
   }
 });
-
-// function updateKeyboardColors(randomWord, input) {
-//     var assessment = guessAssess(randomWord, input);
-//     console.log(assessment)
-//     var keyboard = document.getElementsByClassName("keyboard")[0];
-//     var cells = keyboard.getElementsByClassName("cell");
-  
-//     for (var i = 0; i < cells.length; i++) {
-//         cells[i].className = "cell"; // Reset the class to remove previous color
-
-//         // Add the appropriate class based on the assessment
-//         if (assessment[i] === "correct") {
-//             cells[i].classList.add("correct");
-//         } else if (assessment[i] === "almost"&& !cells[i].classList.contains("correct")) {
-//             cells[i].classList.add("almost");
-//         }
-//     }
-// }
-
-// function guessAssess2(randomWord,input){
-//     var keyboard = document.getElementsByClassName("keyboard")[0];
-//     var cells = keyboard.getElementsByClassName("cell");
-//     var rand = randomWord.split("")
-//     var inp = input.split("")   
-//     // Array.from(cells).forEach(function(cell,index) {
-//     //     var cellId = cell.id;
-//     //     console.log(cellId)
-//     //     if (cellId === rand[index]) {
-//     //         cell.classList.add("correct");
-//     //     } 
-//         // else if (rand.includes(cellId) && !cell.classList.contains("correct")) {
-//         //     cell.classList.add("almost");
-//         // }
-//         // else {
-//         //     cell.classList.add("ignore");
-//         // }
-//     });    // console.log(cells[0].classList)
-//     // return ce
-// }

@@ -1,7 +1,7 @@
 import { guessAssess } from "./guessAssess.js";
 
-export function createRow(input, randomWord){
-    const rowTemplate = document.querySelector("#rowTemplate");
+export function createRow(input, randomWord,gameBeingPlayed){
+    const rowTemplate = document.querySelector(`#rowTemplate${gameBeingPlayed}`);
     const domFragment = rowTemplate.content.cloneNode(true);
     var cells = domFragment.querySelectorAll(".cell");
     var colouring = guessAssess(randomWord,input)
@@ -9,7 +9,7 @@ export function createRow(input, randomWord){
         cells[i].textContent = input[i];
         cells[i].classList.add(colouring[i])
     }
-    gameBoard.appendChild(domFragment)
+    gameBoard5.appendChild(domFragment)
     return colouring.every(element => element === 'correct');
 }
 
