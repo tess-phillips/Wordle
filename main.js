@@ -37,7 +37,7 @@ function onSubmit(event){
     if (input != undefined){
         guessHistory.push(input)
         numberOfGuesses -= 1
-        const won = createRow(input, randomWord,correctList,almostList)
+        const won = createRow(input, randomWord)
         winLoseCheck(won,numberOfGuesses)}
         inputField.value =""
 }
