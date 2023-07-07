@@ -9,23 +9,24 @@ body {
 h1 {
     text-align: center;
     font-size: 48px;
-    color: #FF00FF; /* Magenta color */
+    color: #000; /* Black color */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Text shadow for added depth */
 }
 
 button {
     padding: 10px 20px;
     margin: 5px;
-    background-color: #FF5722; /* Deep orange color */
-    color: white;
-    border: none;
+    background-color: transparent;
+    color: #333;
+    border: 1px solid #333;
     border-radius: 50px; /* Round button shape */
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #FF9800; /* Brighter deep orange color on hover */
+    background-color: #333;
+    color: #fff;
 }
 
 .keyboard {
@@ -67,12 +68,12 @@ button:hover {
 
 .cell.correct {
     background-color: #4CAF50; /* Green color for correct cells */
-    color: white;
+    color: #fff;
 }
 
 .cell.almost {
-    background-color: #FFEB3B; /* Yellow color for almost correct cells */
-    color: #333;
+    background-color: #FF9800; /* Orange color for almost correct cells */
+    color: #fff;
 }
 
 .cell.ignore {
@@ -94,21 +95,22 @@ button:hover {
 
 #inputField:focus {
     outline: none;
-    border-color: #FF5722; /* Deep orange color on focus */
+    border-color: #333;
 }
 
 #submitBtn {
     padding: 10px 20px;
-    background-color: #FF5722; /* Deep orange color for submit button */
-    color: white;
-    border: none;
+    background-color: transparent;
+    color: #333;
+    border: 1px solid #333;
     border-radius: 50px; /* Round button shape */
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 #submitBtn:hover {
-    background-color: #FF9800; /* Brighter deep orange color on hover */
+    background-color: #333;
+    color: #fff;
 }
 
 /* Winning Modal Styles */
@@ -119,7 +121,7 @@ button:hover {
 }
 
 #myWinningModal-content {
-    background-color: #FFEB3B; /* Yellow background for modal */
+    background-color: #fff;
     padding: 40px;
     border-radius: 10px;
     text-align: center;
@@ -129,7 +131,7 @@ button:hover {
 #myWinningModal h2 {
     text-align: center;
     font-size: 36px;
-    color: #FF00FF; /* Magenta color for modal title */
+    color: #000; /* Black color for modal title */
     margin-bottom: 20px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
@@ -149,16 +151,17 @@ button:hover {
 
 #myWinningModal button {
     padding: 10px 20px;
-    width:44%;
+    width: 44%;
     margin: 10px;
-    background-color: #FF5722; /* Deep orange color for modal buttons */
-    color: white;
-    border: none;
+    background-color: transparent;
+    color: #333;
+    border: 1px solid #333;
     border-radius: 50px; /* Round button shape */
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 #myWinningModal button:hover {
-    background-color: #FF9800; /* Brighter deep orange color on hover */
+    background-color: #333;
+    color: #fff;
 }
