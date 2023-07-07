@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wordle Game</title>
     <style>
+        .keyboard {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            /* align-items: center; */
+            width: 420px;
+            /* height: fit-content; */
+        }
         .gameBoard {
             display: flex;
             flex-wrap: wrap;
@@ -65,6 +73,7 @@
         <div class="cell" id="Y">Y</div>
         <div class="cell" id="Z">Z</div>
     </div>
+    <br>
     
     <div id="inputArea">
         <label for="inputField">Enter your guess:</label>
