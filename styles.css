@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 20px;
     background-color: #f2f2f2;
@@ -8,20 +8,24 @@ body {
 
 h1 {
     text-align: center;
+    font-size: 48px;
+    color: #FF00FF; /* Magenta color */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Text shadow for added depth */
 }
 
 button {
-    padding: 10px;
+    padding: 10px 20px;
     margin: 5px;
-    background-color: #4CAF50;
+    background-color: #FF5722; /* Deep orange color */
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 50px; /* Round button shape */
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #FF9800; /* Brighter deep orange color on hover */
 }
 
 .keyboard {
@@ -44,31 +48,36 @@ button:hover {
 }
 
 .row {
-    display: flex; 
+    display: flex;
 }
 
 .cell {
     width: 30px;
     height: 30px;
     text-align: center;
-    margin:1px;
+    margin: 1px;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: white;
     font-weight: bold;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Cell box shadow for depth */
 }
 
 .cell.correct {
-    background-color: lightgreen;
+    background-color: #4CAF50; /* Green color for correct cells */
+    color: white;
 }
 
 .cell.almost {
-    background-color: orange;
+    background-color: #FFEB3B; /* Yellow color for almost correct cells */
+    color: #333;
 }
 
 .cell.ignore {
-    background-color: lightgrey;
+    background-color: #E0E0E0; /* Light gray color for ignored cells */
+    color: #888;
 }
 
 #inputArea {
@@ -76,49 +85,80 @@ button:hover {
 }
 
 #inputField {
-    padding: 5px;
-    border-radius: 4px;
+    padding: 10px 20px;
+    border-radius: 30px; /* Round input field shape */
     border: 1px solid #ccc;
     font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+#inputField:focus {
+    outline: none;
+    border-color: #FF5722; /* Deep orange color on focus */
 }
 
 #submitBtn {
-    padding: 10px;
-    background-color: #4CAF50;
+    padding: 10px 20px;
+    background-color: #FF5722; /* Deep orange color for submit button */
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 50px; /* Round button shape */
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 #submitBtn:hover {
-    background-color: #45a049;
+    background-color: #FF9800; /* Brighter deep orange color on hover */
 }
 
 /* Winning Modal Styles */
+#myWinningModal.show {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s;
+}
+
+#myWinningModal-content {
+    background-color: #FFEB3B; /* Yellow background for modal */
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Modal box shadow for depth */
+}
+
 #myWinningModal h2 {
     text-align: center;
+    font-size: 36px;
+    color: #FF00FF; /* Magenta color for modal title */
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 #myWinningModal h3 {
     text-align: center;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
 }
 
 #myWinningModal p {
     font-weight: bold;
-    margin-top: 10px;
+    margin-top: 20px;
+    font-size: 18px;
 }
 
 #myWinningModal button {
-    padding: 10px;
-    margin: 5px;
-    background-color: #4CAF50;
+    padding: 10px 20px;
+    width:44%;
+    margin: 10px;
+    background-color: #FF5722; /* Deep orange color for modal buttons */
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 50px; /* Round button shape */
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 #myWinningModal button:hover {
-    background-color: #45a049;
+    background-color: #FF9800; /* Brighter deep orange color on hover */
 }
