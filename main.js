@@ -41,3 +41,12 @@ function onSubmit(event){
         winLoseCheck(won,numberOfGuesses)}
         inputField.value =""
 }
+
+const inputField = document.getElementById('inputField');
+// Add event listener for key press event
+inputField.addEventListener('keypress', (event) => {
+  // Check if the pre   ssed key is Enter (key code 13)
+  if (event.key === "Enter") {
+    onSubmit(event);
+  }
+});
