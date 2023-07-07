@@ -38,6 +38,17 @@ button:hover {
     margin: auto;
 }
 
+@media screen and (max-width:430px){
+    .keyboard {
+        grid-template-columns: repeat(6, 1fr);
+        width: 210px;
+    }
+    #inputField{
+        margin-top: 2px;
+        margin-bottom: 2px;
+    }
+}
+
 .gameBoard {
     display: flex;
     flex-wrap: wrap;
@@ -164,4 +175,10 @@ button:hover {
 #myWinningModal button:hover {
     background-color: #333;
     color: #fff;
+}
+
+.button-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
