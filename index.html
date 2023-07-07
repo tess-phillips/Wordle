@@ -3,44 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Wordle Game</title>
-    <style>
-        .keyboard {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            /* align-items: center; */
-            width: 420px;
-            /* height: fit-content; */
-        }
-        .gameBoard {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            width: 300px;
-            height: fit-content;
-        }
-        .row {
-            display: flex; 
-            flex-direction: row;
-        }
-        .cell {
-            width: 30px;
-            height: 30px;
-            text-align: center;
-            border: 1px solid black;
-        }
-        .cell.correct {
-        background-color: lightgreen
-        }
-        .cell.almost {
-        background-color: orange;
-        }
-        .cell.ignore {
-        background-color: lightgrey;
-        }
-    </style>
 </head>
 <body>
     <h1>Wordle Game</h1>
