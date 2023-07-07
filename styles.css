@@ -25,38 +25,50 @@ button:hover {
 }
 
 .keyboard {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin:auto;
+    display: grid;
+    grid-template-columns: repeat(13, 1fr);
+    grid-gap: 3px;
+    justify-items: center;
     width: 420px;
+    margin: auto;
 }
+
 .gameBoard {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    width: 300px;
+    width: 185px;
     height: fit-content;
-    margin:auto;
+    margin: auto;
 }
+
 .row {
     display: flex; 
 }
+
 .cell {
     width: 30px;
     height: 30px;
     text-align: center;
-    border: 1px solid black;
+    margin:1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    font-weight: bold;
 }
+
 .cell.correct {
-background-color: lightgreen
+    background-color: lightgreen;
 }
+
 .cell.almost {
-background-color: orange;
+    background-color: orange;
 }
+
 .cell.ignore {
-background-color: lightgrey;
+    background-color: lightgrey;
 }
 
 #inputArea {
