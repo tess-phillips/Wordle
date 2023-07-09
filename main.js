@@ -3,6 +3,7 @@ import { getRandomWord } from "./utils/getRandomWord.js";
 import { createRow } from "./utils/createRow.js";
 import { winLoseCheck } from "./utils/winLoseCheck.js";
 import { validateWord } from "./utils/validateWord.js";
+import { getDefinition } from "./getDefinition.js";
 // import { guessAssess } from "./utils/guessAssess.js";
 
 // Get DOM elements
@@ -50,8 +51,10 @@ function startGame(guesses, gameBoard, wordFile) {
         wordList = data.map(entry => entry.word).map(word => word.toUpperCase());
         randomWord = getRandomWord(wordList);
         document.querySelector("#theWordWas").textContent = randomWord;
+        getDefinition(randomWord)
       })
       .catch(error => console.error(error));
+
   };
 }
 
