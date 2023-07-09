@@ -56,8 +56,9 @@ function startGame(guesses, gameBoard, wordFile) {
       })
       .then(async randomWord => {
         definitions = getDefinition(randomWord)
-        .then(definitions => {
-        console.log(definitions)})
+          .then(definitions => {
+          document.querySelector("#theDefIs").textContent = definitions;
+        })
       })
       .catch(error => console.error(error));
   };
@@ -71,8 +72,6 @@ function closeWinningModal() {
 
 // Function to handle form submission
 function onSubmit(event) {
-  console.log(randomWord)
-  console.log(definitions);
   const input = validateWord(event, wordList);
   if (input !== undefined) {
     guessHistory.push(input);

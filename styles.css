@@ -155,7 +155,7 @@ button:hover {
 }
 
 #myWinningModal p {
-    font-weight: bold;
+    /* font-weight: bold; */
     margin-top: 20px;
     font-size: 18px;
 }
