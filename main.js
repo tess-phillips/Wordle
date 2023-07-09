@@ -23,6 +23,7 @@ let numberOfGuesses;
 let gameBeingPlayed;
 let wordList;
 let randomWord;
+let definitions
 const guessHistory = [];
 
 // Add event listeners
@@ -51,10 +52,14 @@ function startGame(guesses, gameBoard, wordFile) {
         wordList = data.map(entry => entry.word).map(word => word.toUpperCase());
         randomWord = getRandomWord(wordList);
         document.querySelector("#theWordWas").textContent = randomWord;
-        getDefinition(randomWord)
+        return randomWord
+      })
+      .then(async randomWord => {
+        definitions = getDefinition(randomWord)
+        .then(definitions => {
+        console.log(definitions)})
       })
       .catch(error => console.error(error));
-
   };
 }
 
@@ -66,6 +71,8 @@ function closeWinningModal() {
 
 // Function to handle form submission
 function onSubmit(event) {
+  console.log(randomWord)
+  console.log(definitions);
   const input = validateWord(event, wordList);
   if (input !== undefined) {
     guessHistory.push(input);
