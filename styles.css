@@ -47,6 +47,9 @@ button:hover {
         margin-top: 2px;
         margin-bottom: 2px;
     }
+    h2{
+        font-size: smaller;
+    }
 }
 
 .gameBoard {
@@ -129,52 +132,26 @@ button:hover {
     opacity: 1;
     visibility: visible;
     transition-delay: 0s;
+    max-width: 100px;
 }
 
-#myWinningModal-content {
-    background-color: #fff;
-    padding: 40px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Modal box shadow for depth */
+dialog{
+    border-style: none;
 }
 
 #myWinningModal h2 {
     text-align: center;
-    font-size: 36px;
-    color: #000; /* Black color for modal title */
-    margin-bottom: 20px;
+    font-size: 30px;
+    color: #000;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-#myWinningModal h3 {
-    text-align: center;
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-#myWinningModal p {
-    /* font-weight: bold; */
-    margin-top: 20px;
-    font-size: 18px;
-}
-
 #myWinningModal button {
-    padding: 10px 20px;
-    width: 44%;
-    margin: 10px;
-    background-color: transparent;
     color: #333;
     border: 1px solid #333;
-    border-radius: 50px; /* Round button shape */
+    border-radius: 50px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-}
-
-#myWinningModal button:hover {
-    background-color: #333;
-    color: #fff;
 }
 
 .button-container{
