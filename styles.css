@@ -146,16 +146,31 @@ dialog{
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
+/* #myWinningModal{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+} */
+
 #myWinningModal button {
     color: #333;
     border: 1px solid #333;
     border-radius: 50px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    /* flex-grow: 1;
+    margin: 0 5px; */
 }
 
+#myWinningModal button {
+    /* Existing styles */
+    display: block;
+    margin: 0;
+}
+
+
 .button-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
 }
