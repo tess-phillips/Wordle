@@ -52,7 +52,6 @@
         </div>
         <br>
     </span>
-
     <div class="gameBoard" id="gameBoard5">
         <template id="rowTemplate5">
             <div class="row">
@@ -77,6 +76,19 @@
             </div>
         </template>
     </div>
+
+    <dialog id="myHintModal">
+        <!-- <h2>You've won</h2> -->
+        <!-- <br> -->
+        <!-- <b><p align="center" id="theWordWas"></p></b> -->
+        <!-- <br> -->
+        <em><p id="theDefIs"></p></em>
+        <!-- <br> -->
+        <div class="button-container">
+            <button id="closeHintModal">Close</button>
+            <!-- <button id="playAgain" onclick="location.reload()">Play Again</button> -->
+        </div>
+    </dialog>
 
     <dialog id="myWinningModal">
         <h2 id="winOrLoseText">You've won</h2>

@@ -17,6 +17,9 @@ const closeModalButton = document.getElementById('closeWinningModal');
 const winningModal = document.getElementById('myWinningModal');
 const submitBtn = document.getElementById('submitBtn');
 const inputField = document.getElementById('inputField');
+const closeHintModalButton = document.getElementById('closeHintModal');
+const hintModal = document.getElementById('myHintModal');
+
 
 // Initialize variables
 let numberOfGuesses;
@@ -30,6 +33,7 @@ const guessHistory = [];
 fiveBtn.addEventListener('click', startGame(5, gameBoard5, 'words5.json'));
 sixBtn.addEventListener('click', startGame(6, gameBoard6, 'words6.json'));
 closeModalButton.addEventListener('click', closeWinningModal);
+closeHintModalButton.addEventListener('click', closeHintModal);
 submitBtn.addEventListener('click', onSubmit);
 inputField.addEventListener('keypress', (event) => {
   if (event.key === "Enter") {
@@ -68,6 +72,12 @@ function startGame(guesses, gameBoard, wordFile) {
 function closeWinningModal() {
   winningModal.close();
   inputArea.remove();
+}
+
+// Function to close the hint modal
+function closeHintModal() {
+  console.log("run")
+  hintModal.close();
 }
 
 // Function to handle form submission
