@@ -22,7 +22,10 @@ const hintModal = document.getElementById('myHintModal');
 
 
 // Initialize variables
-let numberOfGuesses;
+// let gameData.numberOfGuesses;
+const gameData = {
+  numberOfGuesses: 5
+};
 let gameBeingPlayed;
 let wordList;
 let randomWord;
@@ -47,7 +50,7 @@ function startGame(guesses, gameBoard, wordFile) {
     sixBtn.remove();
     universals.style.display = "block";
     gameBoard.style.display = "block";
-    numberOfGuesses = guesses;
+    gameData.numberOfGuesses = guesses;
     gameBeingPlayed = guesses;
     fetch(wordFile)
       .then(response => response.json())
@@ -75,8 +78,8 @@ const theWordWas = document.getElementById('theWordWas');
 // Function to close the winning modal
 function closeWinningModal() {
   winningModal.close();
-  if (numberOfGuesses != 0){
-    console.log(numberOfGuesses,"num guess")
+  if (gameData.numberOfGuesses != 0){
+    console.log(gameData.numberOfGuesses,"num guess")
     console.log("shouldn't remove")
     // inputArea.remove();
   } else{
@@ -91,9 +94,9 @@ function onSubmit(event) {
   const input = validateWord(event, wordList);
   if (input !== undefined) {
     guessHistory.push(input);
-    numberOfGuesses -= 1;
+    gameData.numberOfGuesses -= 1;
     const won = createRow(input, randomWord, gameBeingPlayed);
-    winLoseCheck(won, numberOfGuesses);
+    winLoseCheck(won, gameData);
   }
   inputField.value = "";
 }
