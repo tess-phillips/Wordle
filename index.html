@@ -77,7 +77,7 @@
         </template>
     </div>
 
-    <dialog id="myHintModal">
+    <!-- <dialog id="myHintModal">
         <h2>Hint</h2>
         <em><div class="theDefIs">This word is so hard even the dictionary can't find it!
             <form
@@ -93,14 +93,25 @@
             <button id="closeHintModal">Close</button>
             <button id="playAgain" onclick="location.reload()">Play Again</button>
         </div>
-    </dialog>
+    </dialog> -->
 
     <dialog id="myWinningModal">
         <h2 id="winOrLoseText">You've won</h2>
         <br>
-        <b><p align="center" id="theWordWas"></p></b>
+        <b><p align="center" id="theWordWas" style="display: none;"></p></b>
         <br>
-        <em><p class="theDefIs">This word is so hard even the dictionary can't find it!</p></em>
+        <em><div class="theDefIs">This word is so hard even the dictionary can't find it!
+            <form
+            action="https://formspree.io/f/mdorobwn"
+            method="POST"
+            styles="display:none"
+            id="wrongWordForm"
+            >
+                <input type="hidden" name="theWordWas" id="hiddenWord" value="" />
+
+                <button type="submit">Click here to let Tess know</button>
+            </form>
+        </div></em>
         <br>
         <div class="button-container">
             <button id="closeWinningModal">Close</button>

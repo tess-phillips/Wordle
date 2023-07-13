@@ -33,7 +33,7 @@ const guessHistory = [];
 fiveBtn.addEventListener('click', startGame(5, gameBoard5, 'wordsCopy.json'));
 sixBtn.addEventListener('click', startGame(6, gameBoard6, 'words6.json'));
 closeModalButton.addEventListener('click', closeWinningModal);
-closeHintModalButton.addEventListener('click', closeHintModal);
+// closeHintModalButton.addEventListener('click', closeHintModal);
 submitBtn.addEventListener('click', onSubmit);
 inputField.addEventListener('keypress', (event) => {
   if (event.key === "Enter") {
@@ -74,13 +74,15 @@ function startGame(guesses, gameBoard, wordFile) {
 // Function to close the winning modal
 function closeWinningModal() {
   winningModal.close();
-  inputArea.remove();
+  if (numberOfGuesses == 0){
+    inputArea.remove();
+  }
 }
 
 // Function to close the hint modal
-function closeHintModal() {
-  hintModal.close();
-}
+// function closeHintModal() {
+//   hintModal.close();
+// }
 
 // Function to handle form submission
 function onSubmit(event) {
