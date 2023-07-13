@@ -3,21 +3,20 @@ export function winLoseCheck(won,gameData){
     const theWordWas = document.getElementById('theWordWas');
     const closeBtn = document.getElementById('closeBtn');
     const continueBtn = document.getElementById('continueBtn');
-    if (won){
-        gameData["numberOfGuesses"] = 0
-        document.querySelector("#modalTitle").textContent = "You've won"
+    if (won || gameData.numberOfGuesses == 0){
         continueBtn.style.display = "none"
         closeBtn.style.display = "block"
         theWordWas.style.display = "block"
+        if (won){
+            gameData["numberOfGuesses"] = 0
+            document.querySelector("#modalTitle").textContent = "You've won"
+        }
+        else if (gameData.numberOfGuesses == 0){
+            document.querySelector("#modalTitle").textContent = "You lose womp womp"
+        } 
         modal.showModal()
     }
-    else if (gameData.numberOfGuesses == 0){
-        document.querySelector("#modalTitle").textContent = "You lose womp womp"
-        continueBtn.style.display = "none"
-        closeBtn.style.display = "block"
-        theWordWas.style.display = "block"
-        modal.showModal()
-    } else if (gameData.numberOfGuesses ==1){
+    else if (gameData.numberOfGuesses ==1){
         document.querySelector("#modalTitle").textContent = "Hint:"
         theWordWas.style.display = "none"
         closeBtn.style.display = "none"
