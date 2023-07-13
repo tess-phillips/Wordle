@@ -10,9 +10,11 @@ export function winLoseCheck(won,gameData){
         if (won){
             gameData["numberOfGuesses"] = 0
             document.querySelector("#modalTitle").textContent = "You've won"
+            document.querySelector("#modalTitle").style.color = "green"
         }
         else if (gameData.numberOfGuesses == 0){
             document.querySelector("#modalTitle").textContent = "You lose womp womp"
+            document.querySelector("#modalTitle").style.color = "orange"
         } 
         modal.showModal()
     }
