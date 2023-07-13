@@ -30,7 +30,7 @@ let definitions
 const guessHistory = [];
 
 // Add event listeners
-fiveBtn.addEventListener('click', startGame(5, gameBoard5, 'words5.json'));
+fiveBtn.addEventListener('click', startGame(5, gameBoard5, 'wordsCopy.json'));
 sixBtn.addEventListener('click', startGame(6, gameBoard6, 'words6.json'));
 closeModalButton.addEventListener('click', closeWinningModal);
 closeHintModalButton.addEventListener('click', closeHintModal);
@@ -56,6 +56,7 @@ function startGame(guesses, gameBoard, wordFile) {
         wordList = data.map(entry => entry.word).map(word => word.toUpperCase());
         randomWord = getRandomWord(wordList);
         document.querySelector("#theWordWas").textContent = randomWord;
+        document.querySelector("#hiddenWord").value = randomWord;
         return randomWord
       })
       .then(async randomWord => {

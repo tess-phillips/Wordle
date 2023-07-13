@@ -79,9 +79,19 @@
 
     <dialog id="myHintModal">
         <h2>Hint</h2>
-        <em><p class="theDefIs">This word is so hard even the dictionary can't find it!</p></em>
+        <em><div class="theDefIs">This word is so hard even the dictionary can't find it!
+            <form
+            action="https://formspree.io/f/mdorobwn"
+            method="POST"
+            >
+                <input type="hidden" name="theWordWas" id="hiddenWord" value="" />
+
+                <button type="submit">Click here to let Tess know</button>
+            </form>
+        </div></em>
         <div class="button-container">
             <button id="closeHintModal">Close</button>
+            <button id="playAgain" onclick="location.reload()">Play Again</button>
         </div>
     </dialog>
 
