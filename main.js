@@ -4,7 +4,6 @@ import { createRow } from "./utils/createRow.js";
 import { winLoseCheck } from "./utils/winLoseCheck.js";
 import { validateWord } from "./utils/validateWord.js";
 import { getDefinition } from "./getDefinition.js";
-// import { guessAssess } from "./utils/guessAssess.js";
 
 // Get DOM elements
 const fiveBtn = document.getElementById('5letter');
@@ -17,9 +16,6 @@ const closeModalButton = document.getElementById('closeWinningModal');
 const winningModal = document.getElementById('myWinningModal');
 const submitBtn = document.getElementById('submitBtn');
 const inputField = document.getElementById('inputField');
-const closeHintModalButton = document.getElementById('closeHintModal');
-const hintModal = document.getElementById('myHintModal');
-
 
 // Initialize variables
 // let gameData.numberOfGuesses;
@@ -33,7 +29,7 @@ let definitions
 const guessHistory = [];
 
 // Add event listeners
-fiveBtn.addEventListener('click', startGame(5, gameBoard5, 'wordsCopy.json'));
+fiveBtn.addEventListener('click', startGame(5, gameBoard5, 'words5.json'));
 sixBtn.addEventListener('click', startGame(6, gameBoard6, 'words6.json'));
 closeModalButton.addEventListener('click', closeWinningModal);
 submitBtn.addEventListener('click', onSubmit);
@@ -78,11 +74,7 @@ const theWordWas = document.getElementById('theWordWas');
 // Function to close the winning modal
 function closeWinningModal() {
   winningModal.close();
-  if (gameData.numberOfGuesses != 0){
-    console.log(gameData.numberOfGuesses,"num guess")
-    console.log("shouldn't remove")
-    // inputArea.remove();
-  } else{
+  if (gameData.numberOfGuesses == 0){
     theWordWas.style.display = "block"
     closeModalButton.textContent = "Close"
     inputArea.remove();
@@ -98,5 +90,4 @@ function onSubmit(event) {
     const won = createRow(input, randomWord, gameBeingPlayed);
     winLoseCheck(won, gameData);
   }
-  inputField.value = "";
 }
