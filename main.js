@@ -12,8 +12,9 @@ const universals = document.getElementById('game-universals');
 const gameBoard5 = document.getElementById('gameBoard5');
 const gameBoard6 = document.getElementById('gameBoard6');
 const inputArea = document.querySelector("#inputArea");
-const closeModalButton = document.getElementById('closeWinningModal');
-const winningModal = document.getElementById('myWinningModal');
+const closeModalButton = document.getElementById('closeBtn');
+const continueModalButton = document.getElementById('continueBtn');
+const modal = document.getElementById('modal');
 const submitBtn = document.getElementById('submitBtn');
 const inputField = document.getElementById('inputField');
 
@@ -31,7 +32,8 @@ const guessHistory = [];
 // Add event listeners
 fiveBtn.addEventListener('click', startGame(5, gameBoard5, 'words5.json'));
 sixBtn.addEventListener('click', startGame(6, gameBoard6, 'words6.json'));
-closeModalButton.addEventListener('click', closeWinningModal);
+closeModalButton.addEventListener('click', closeModal);
+continueModalButton.addEventListener('click', continueModal);
 submitBtn.addEventListener('click', onSubmit);
 inputField.addEventListener('keypress', (event) => {
   if (event.key === "Enter") {
@@ -69,16 +71,15 @@ function startGame(guesses, gameBoard, wordFile) {
   };
 }
 
-const theWordWas = document.getElementById('theWordWas');
-
 // Function to close the winning modal
-function closeWinningModal() {
-  winningModal.close();
-  if (gameData.numberOfGuesses == 0){
-    theWordWas.style.display = "block"
-    closeModalButton.textContent = "Close"
-    inputArea.remove();
-  }
+function closeModal() {
+  modal.close();
+  inputArea.remove();
+}
+
+// Function to close the winning modal after the hint
+function continueModal() {
+  modal.close();
 }
 
 // Function to handle form submission
@@ -89,5 +90,6 @@ function onSubmit(event) {
     gameData.numberOfGuesses -= 1;
     const won = createRow(input, randomWord, gameBeingPlayed);
     winLoseCheck(won, gameData);
+    inputField.value = "";
   }
 }

@@ -77,14 +77,12 @@
         </template>
     </div>
 
-    <dialog id="myWinningModal">
-        <h2 id="winOrLoseText">Hint:</h2>
-        <br>
-        <b><p align="center" id="theWordWas" style="display: none;"></p></b>
+    <dialog id="modal">
+        <h2 id="modalTitle"></h2>
+        <p align="center" id="theWordWas"></p>
         <br>
         <em><div class="theDefIs">This word is so hard even the dictionary can't find it!
             <form
-            style="display:none"
             id="wrongWordForm"
             method="POST"
             action="https://formspree.io/f/mdorobwn"
@@ -96,8 +94,9 @@
         </div></em>
         <br>
         <div class="button-container">
-            <button id="closeWinningModal">Continue</button>
-            <button id="playAgain" onclick="location.reload()">Play Again</button>
+            <button id="closeBtn">Close</button>
+            <button id="continueBtn">Continue</button>
+            <button id="playAgainBtn" onclick="location.reload()">Play Again</button>
         </div>
     </dialog>
 
