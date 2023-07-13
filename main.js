@@ -61,11 +61,9 @@ function startGame(guesses, gameBoard, wordFile) {
       .then(async randomWord => {
         definitions = getDefinition(randomWord)
           .then(definitions => {
-            console.log(document.querySelectorAll(".theDefIs"))
-            document.querySelectorAll(".theDefIs").forEach(x => x.innerHTML = definitions)
-            console.log(document.querySelectorAll(".theDefIs"))
-            console.log(document.querySelectorAll(".theDefIs").innerHTML)
-            // document.querySelectorAll(".theDefIs").innerHTML = definitions;
+            if (definitions != undefined){
+              document.querySelectorAll(".theDefIs").forEach(x => x.innerHTML = definitions)
+            }
         })
       })
       .catch(error => console.error(error));
@@ -80,7 +78,6 @@ function closeWinningModal() {
 
 // Function to close the hint modal
 function closeHintModal() {
-  console.log("run")
   hintModal.close();
 }
 
