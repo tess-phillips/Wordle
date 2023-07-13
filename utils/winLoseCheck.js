@@ -14,6 +14,8 @@ export function winLoseCheck(won,gameData){
     }
     else if (gameData.numberOfGuesses == 0){
         document.querySelector("#winOrLoseText").textContent = "You lose womp womp"
+        theWordWas.style.display = "block"
+        closeModalButton.textContent = "Close"
         // theWordWas.style.display = "block"
         winningModal.showModal()
     } else if (gameData.numberOfGuesses<2){
