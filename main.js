@@ -61,7 +61,11 @@ function startGame(guesses, gameBoard, wordFile) {
       .then(async randomWord => {
         definitions = getDefinition(randomWord)
           .then(definitions => {
-          document.querySelector("#theDefIs").textContent = definitions;
+            console.log(document.querySelectorAll(".theDefIs"))
+            document.querySelectorAll(".theDefIs").forEach(x => x.innerHTML = definitions)
+            console.log(document.querySelectorAll(".theDefIs"))
+            console.log(document.querySelectorAll(".theDefIs").innerHTML)
+            // document.querySelectorAll(".theDefIs").innerHTML = definitions;
         })
       })
       .catch(error => console.error(error));
