@@ -30,7 +30,7 @@ let definitions
 const guessHistory = [];
 
 // Add event listeners
-fiveBtn.addEventListener('click', startGame(5, gameBoard5, 'words5.json'));
+fiveBtn.addEventListener('click', startGame(5, gameBoard5, 'wordsCopy.json'));
 sixBtn.addEventListener('click', startGame(6, gameBoard6, 'words6.json'));
 closeModalButton.addEventListener('click', closeWinningModal);
 submitBtn.addEventListener('click', onSubmit);
@@ -70,10 +70,18 @@ function startGame(guesses, gameBoard, wordFile) {
   };
 }
 
+const theWordWas = document.getElementById('theWordWas');
+
 // Function to close the winning modal
 function closeWinningModal() {
   winningModal.close();
-  if (numberOfGuesses == 0){
+  if (numberOfGuesses != 0){
+    console.log(numberOfGuesses,"num guess")
+    console.log("shouldn't remove")
+    // inputArea.remove();
+  } else{
+    theWordWas.style.display = "block"
+    closeModalButton.textContent = "Close"
     inputArea.remove();
   }
 }
