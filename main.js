@@ -30,10 +30,9 @@ let definitions
 const guessHistory = [];
 
 // Add event listeners
-fiveBtn.addEventListener('click', startGame(5, gameBoard5, 'wordsCopy.json'));
+fiveBtn.addEventListener('click', startGame(5, gameBoard5, 'words5.json'));
 sixBtn.addEventListener('click', startGame(6, gameBoard6, 'words6.json'));
 closeModalButton.addEventListener('click', closeWinningModal);
-// closeHintModalButton.addEventListener('click', closeHintModal);
 submitBtn.addEventListener('click', onSubmit);
 inputField.addEventListener('keypress', (event) => {
   if (event.key === "Enter") {
@@ -78,11 +77,6 @@ function closeWinningModal() {
     inputArea.remove();
   }
 }
-
-// Function to close the hint modal
-// function closeHintModal() {
-//   hintModal.close();
-// }
 
 // Function to handle form submission
 function onSubmit(event) {

@@ -1,6 +1,5 @@
 export function winLoseCheck(won,numberOfGuesses){
     const winningModal = document.getElementById('myWinningModal');
-    // const hintModal = document.getElementById('myHintModal');
     const wrongWordForm = document.getElementById('wrongWordForm');
     const theWordWas = document.getElementById('theWordWas');
     if (won){
@@ -12,7 +11,6 @@ export function winLoseCheck(won,numberOfGuesses){
         theWordWas.style.display = "block"
         winningModal.showModal()
     } else if (numberOfGuesses<2){
-        // hintModal.show()
         document.querySelector("#winOrLoseText").textContent = "Hint:"
         wrongWordForm.style.display = "block"
         winningModal.showModal()
