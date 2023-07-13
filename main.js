@@ -4,7 +4,6 @@ import { createRow } from "./utils/createRow.js";
 import { winLoseCheck } from "./utils/winLoseCheck.js";
 import { validateWord } from "./utils/validateWord.js";
 import { getDefinition } from "./getDefinition.js";
-// import { guessAssess } from "./utils/guessAssess.js";
 
 // Get DOM elements
 const fiveBtn = document.getElementById('5letter');
@@ -19,7 +18,10 @@ const submitBtn = document.getElementById('submitBtn');
 const inputField = document.getElementById('inputField');
 
 // Initialize variables
-let numberOfGuesses;
+// let gameData.numberOfGuesses;
+const gameData = {
+  numberOfGuesses: 5
+};
 let gameBeingPlayed;
 let wordList;
 let randomWord;
@@ -44,7 +46,7 @@ function startGame(guesses, gameBoard, wordFile) {
     sixBtn.remove();
     universals.style.display = "block";
     gameBoard.style.display = "block";
-    numberOfGuesses = guesses;
+    gameData.numberOfGuesses = guesses;
     gameBeingPlayed = guesses;
     fetch(wordFile)
       .then(response => response.json())
@@ -52,22 +54,31 @@ function startGame(guesses, gameBoard, wordFile) {
         wordList = data.map(entry => entry.word).map(word => word.toUpperCase());
         randomWord = getRandomWord(wordList);
         document.querySelector("#theWordWas").textContent = randomWord;
+        document.querySelector("#hiddenWord").value = randomWord;
         return randomWord
       })
       .then(async randomWord => {
         definitions = getDefinition(randomWord)
           .then(definitions => {
-          document.querySelector("#theDefIs").textContent = definitions;
+            if (definitions != undefined){
+              document.querySelectorAll(".theDefIs").forEach(x => x.innerHTML = definitions)
+            }
         })
       })
       .catch(error => console.error(error));
   };
 }
 
+const theWordWas = document.getElementById('theWordWas');
+
 // Function to close the winning modal
 function closeWinningModal() {
   winningModal.close();
-  inputArea.remove();
+  if (gameData.numberOfGuesses == 0){
+    theWordWas.style.display = "block"
+    closeModalButton.textContent = "Close"
+    inputArea.remove();
+  }
 }
 
 // Function to handle form submission
@@ -75,9 +86,8 @@ function onSubmit(event) {
   const input = validateWord(event, wordList);
   if (input !== undefined) {
     guessHistory.push(input);
-    numberOfGuesses -= 1;
+    gameData.numberOfGuesses -= 1;
     const won = createRow(input, randomWord, gameBeingPlayed);
-    winLoseCheck(won, numberOfGuesses);
+    winLoseCheck(won, gameData);
   }
-  inputField.value = "";
 }

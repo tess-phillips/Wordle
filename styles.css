@@ -15,7 +15,7 @@ h1 {
 
 button {
     padding: 10px 20px;
-    margin: 5px;
+    margin: 50px;
     background-color: transparent;
     color: #333;
     border: 1px solid #333;
@@ -49,6 +49,9 @@ button:hover {
     }
     h2{
         font-size: smaller;
+    }
+    button{
+        margin:5px
     }
 }
 

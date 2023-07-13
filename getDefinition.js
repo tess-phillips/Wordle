@@ -16,6 +16,7 @@ export const getDefinition = async (randomWord) => {
     } 
     catch (error) {
       console.log(error);
+      console.log("word to remove:", randomWord)
     }
   };
   

@@ -52,7 +52,6 @@
         </div>
         <br>
     </span>
-
     <div class="gameBoard" id="gameBoard5">
         <template id="rowTemplate5">
             <div class="row">
@@ -79,14 +78,25 @@
     </div>
 
     <dialog id="myWinningModal">
-        <h2 id="winOrLoseText">You've won</h2>
+        <h2 id="winOrLoseText">Hint:</h2>
         <br>
-        <b><p align="center" id="theWordWas"></p></b>
+        <b><p align="center" id="theWordWas" style="display: none;"></p></b>
         <br>
-        <em><p id="theDefIs"></p></em>
+        <em><div class="theDefIs">This word is so hard even the dictionary can't find it!
+            <form
+            style="display:none"
+            id="wrongWordForm"
+            method="POST"
+            action="https://formspree.io/f/mdorobwn"
+            >
+                <input type="hidden" name="theWordWas" id="hiddenWord" value="" />
+
+                <button type="submit" style="border-style: none;">Click here to let Tess know. NB: You will lose your place in the game.</button>
+            </form>
+        </div></em>
         <br>
         <div class="button-container">
-            <button id="closeWinningModal">Close</button>
+            <button id="closeWinningModal">Continue</button>
             <button id="playAgain" onclick="location.reload()">Play Again</button>
         </div>
     </dialog>
