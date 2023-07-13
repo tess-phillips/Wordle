@@ -46,6 +46,7 @@ function startGame(guesses, gameBoard, wordFile) {
   return () => {
     fiveBtn.remove();
     sixBtn.remove();
+    number5.remove(); //numbers version onlu
     universals.style.display = "block";
     gameBoard.style.display = "block";
     gameData.numberOfGuesses = guesses;
@@ -70,6 +71,26 @@ function startGame(guesses, gameBoard, wordFile) {
       .catch(error => console.error(error));
   };
 }
+
+
+// numbers version only
+  const number5 = document.getElementById('5number');
+  number5.addEventListener('click', startNumberGame(5,gameBoard5));
+
+  // Function to start the game
+  function startNumberGame(guesses, gameBoard) {
+    return () => {
+      fiveBtn.remove();
+      sixBtn.remove();
+      number5.remove()
+      universals.style.display = "block";
+      gameBoard.style.display = "block";
+      gameData.numberOfGuesses = guesses;
+      gameBeingPlayed = "numbers";
+      randomWord = String(Math.floor(Math.random()*90000) + 10000)
+    };
+  }
+//
 
 // Function to close the winning modal
 function closeModal() {

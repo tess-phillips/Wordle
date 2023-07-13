@@ -5,7 +5,6 @@ export const getDefinition = async (randomWord) => {
   
       if (response.ok) {
         const data = await response.json();
-        // console.log(data."definition")
         const meaning = data[0].meanings;
         const definitionArray = meaning[0].definitions
         const firstDef = definitionArray[0].definition;
